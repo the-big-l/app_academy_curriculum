@@ -1,10 +1,11 @@
+# Extend the Array class
 class Array
   def my_each
-    0.upto(size-1) do |i|
+    0.upto(size - 1) do |i|
       yield self[i]
     end
 
-  self
+    self
   end
 
   def my_select
@@ -93,9 +94,9 @@ class Array
 
   def my_reverse
     reversed = []
-      (0...size).to_a.each do |i|
-        reversed.unshift(self[i])
-      end
+    (0...size).to_a.each do |i|
+      reversed.unshift(self[i])
+    end
     reversed
   end
 end
