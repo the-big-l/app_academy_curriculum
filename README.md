@@ -1,2 +1,2 @@
 # app_academy_curriculum
-Daily App Academy
+Daily App Academy projects
