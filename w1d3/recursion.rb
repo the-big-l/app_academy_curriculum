@@ -28,26 +28,21 @@ def exp_two(b, n)
   return b if n == 1
 
   if n.even?
-    exp(b, n/2) ** 2
+    exp(b, n / 2)**2
   else
-    b * (exp(b, (n - 1) / 2) ** 2)
+    b * (exp(b, (n - 1) / 2)**2)
   end
 end
 
+# extend Array class
 class Array
-
   def deep_dup
-    return self.dup if self.flatten == self
+    return dup if flatten == self
 
-    self.map do |el|
-      if el.is_a?(Array)
-        el.deep_dup
-      else
-        el
-      end
+    map do |el|
+      el.is_a?(Array) ? el.deep_dup : el
     end.dup
   end
-
 end
 
 def fibonacci(n)
@@ -62,7 +57,7 @@ def subsets(array)
 
   prev_subs = subsets(array[0..-2])
 
-  prev_subs + prev_subs.map { |el| el += [array.last] }
+  prev_subs + prev_subs.map { |el| el + [array.last] }
 end
 
 def permutations(array)
@@ -72,7 +67,7 @@ def permutations(array)
 
   result = []
   previous_perms.each do |el|
-    (array.length).times do |idx|
+    array.length.times do |idx|
       result << el.dup.insert(idx, array.last)
     end
   end
@@ -99,19 +94,21 @@ end
 def bsearch(array, target)
   return nil if array.empty?
 
-  n = array.size/2
-  bottom, mid, top = array[0...n], array[n], array[n+1..-1]
+  n = array.size / 2
+  bottom = array[0...n]
+  mid = array[n]
+  top = array[n + 1..-1]
 
-  if target < array[n]
+  if target < mid
     bsearch(bottom, target)
-  elsif target > array[n]
+  elsif target > mid
     if bsearch(top, target).nil?
       return nil
     else
       bsearch(top, target) + bottom.size + 1
     end
   else
-    return array[n] == target ? n : nil
+    return mid == target ? n : nil
   end
 end
 
@@ -119,7 +116,8 @@ def merge_sort(array)
   return array if array.length <= 1
 
   n = array.size
-  bottom, top = array[0...n/2], array[n/2..-1]
+  bottom = array[0...n / 2]
+  top = array[n / 2..-1]
 
   merge(merge_sort(bottom), merge_sort(top))
 end
