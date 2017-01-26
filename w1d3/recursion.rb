@@ -102,13 +102,10 @@ def bsearch(array, target)
   if target < mid
     bsearch(bottom, target)
   elsif target > mid
-    if bsearch(top, target).nil?
-      return nil
-    else
-      bsearch(top, target) + bottom.size + 1
-    end
+    top_search = bsearch(top, target)
+    top_search.nil? ? nil : top_search + bottom.size + 1
   else
-    return mid == target ? n : nil
+    mid == target ? n : nil
   end
 end
 
