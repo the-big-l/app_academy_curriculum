@@ -5,34 +5,27 @@ class RecursionMachine
   # Implement a method that finds the sum of the first n
   # fibonacci numbers recursively. Assume n > 0
   def fibs_sum(n)
-
   end
-
   #returns all subsets of an array
   def subsets(array)
-
   end
 
 
   # return the sum of the first n even numbers recursively. Assume n > 0
   def first_even_numbers_sum(n)
-
   end
 
   # return b^n recursively. Your solution should accept negative values
   # for n
   def exponent(b, n)
-
   end
 
   # make better change problem from class
   def make_better_change(value, coins)
-
   end
 
   #deep dup question from class
   def deep_dup(arr)
-
   end
 
   # Write a recursive method that takes in a string to search and a key string.
@@ -42,7 +35,6 @@ class RecursionMachine
   # string_include_key?("cadbpc", "abc") => true
   # string_include_key("cba", "abc") => false
   def string_include_key?(string, key)
-
   end
 
   # Write a recursive function that returns the prime factorization of
@@ -50,11 +42,10 @@ class RecursionMachine
   #
   # prime_factorization(12) => [2,2,3]
   def prime_factorization(num)
-
   end
 
   def is_prime?(num)
-  
+
   end
 
   # Write a method, `digital_root(num)`. It should Sum the digits of a positive
@@ -66,7 +57,6 @@ class RecursionMachine
   # one step of the process.
 
   def digital_root(num)
-
   end
 
   # Write a recursive method that takes in a base 10 number n and
@@ -76,7 +66,6 @@ class RecursionMachine
   # base_converter(31, 16) == "1f"
 
   def base_converter(num, b)
-
   end
 
   # CHALLENGE: Eight queens puzzle precursor

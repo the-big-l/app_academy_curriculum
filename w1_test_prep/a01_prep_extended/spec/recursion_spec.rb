@@ -24,7 +24,7 @@ end
 describe 'subsets' do
 
   it "Correctly returns all subsets of an array" do
-    expect(r.subsets([1, 2, 3])).to eq([[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]])
+    expect(r.subsets([1, 2, 3])).to eq([[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]].sort)
   end
 
 end
@@ -148,15 +148,15 @@ describe "#base_converter" do
     expect(r.base_converter(1239449, 16)).to eq("12e999" || "12E999" )
   end
 end
-
-describe "eight_queens_possibilities" do
-  it "Returns an array of the correct_size" do
-    pos = r.eight_queens_possibilities(0, [], nil)
-    sol = YAML.load_file("./possible_boards.yml").sort
-
-    expect(pos.sort).to eq(sol)
-  end
-
-  pos = r.eight_queens_possibilities(0, [], nil)
-
-end
+#
+# describe "eight_queens_possibilities" do
+#   it "Returns an array of the correct_size" do
+#     pos = r.eight_queens_possibilities(0, [], nil)
+#     sol = YAML.load_file("./possible_boards.yml").sort
+#
+#     expect(pos.sort).to eq(sol)
+#   end
+#
+#   pos = r.eight_queens_possibilities(0, [], nil)
+#
+# end
