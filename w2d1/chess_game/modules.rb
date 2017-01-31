@@ -41,7 +41,7 @@ module SlidingPiece
 
       while @board.in_bounds?(new_move) && @board[new_move].color != @color
         possible_moves << new_move
-        break if @board[new_move].color != 'blank'
+        break if @board[new_move].color == @board.opposite_color(@color)
         new_move = add_pos(new_move, dir)
       end
     end
