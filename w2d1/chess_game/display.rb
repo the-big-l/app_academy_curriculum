@@ -14,10 +14,9 @@ class Display
         if [i,j] == @cursor.cursor_pos
           print piece.name.colorize( :background => :red)
         else
-          print piece.name
+          print piece.name.colorize( :background => :yellow)
         end
       end
-      print "\n"
       print "\n"
     end
   end
