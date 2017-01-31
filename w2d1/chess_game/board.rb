@@ -5,7 +5,7 @@ class Board
   attr_accessor :grid
 
   def initialize
-    @grid = Array.new(8) { Array.new(8) { NullPiece.new }}
+    @grid = Array.new(8) { Array.new(8) { NullPiece.instance }}
   end
 
   def [](pos)
@@ -26,7 +26,7 @@ class Board
 
   def in_bounds?(pos)
     x, y = pos
-    return (x >= 0) && (x < 8) && (y >= 0) && (y <8)
+    return (x >= 0) && (x <= 7) && (y >= 0) && (y <= 7)
   end
 
 
