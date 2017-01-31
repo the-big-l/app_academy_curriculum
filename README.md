@@ -1,4 +1,5 @@
 # app_academy_curriculum
+GIT_COMMITTER_NAME="Leo Salat" GIT_COMMITTER_EMAIL="leo.salat@gmail.com" git commit --author="Leo Salat <leo.salat@gmail.com>"
 
 ## Homework
 w1d1 - No homework!
