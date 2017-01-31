@@ -31,11 +31,12 @@ class Board
   end
 
   def initial_setup
-    place_pawns(:white, 1)
-    place_pawns(:black, 6)
+    col = [:yellow, :cyan]
+    place_pawns(col[0], 1)
+    place_pawns(col[1], 6)
 
-    place_other_pieces(:white, 0)
-    place_other_pieces(:black, 7)
+    place_other_pieces(col[0], 0)
+    place_other_pieces(col[1], 7)
   end
 
   def place_pawns(color, row)

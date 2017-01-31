@@ -16,7 +16,8 @@ class Display
         if [i,j] == @cursor.cursor_pos
           print piece.name.colorize( :background => :red)
         else
-          print piece.name.colorize( :background => :yellow)
+          sq_co = (i + j).even? ? :white : :black
+          print piece.name.colorize( :background => sq_co)
         end
       end
       print "\n"
