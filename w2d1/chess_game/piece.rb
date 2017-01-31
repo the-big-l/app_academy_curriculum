@@ -89,4 +89,8 @@ class NullPiece < Piece
   def initialize
     @name = '   '
   end
+
+  def move
+    []
+  end
 end

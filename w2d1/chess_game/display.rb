@@ -9,7 +9,9 @@ class Display
   end
 
   def render
+    puts '   ' + (0..7).to_a.join('  ') + ' '
     @board.grid.each_with_index do |row, i|
+      print i.to_s + ' '
       row.each_with_index do |piece, j|
         if [i,j] == @cursor.cursor_pos
           print piece.name.colorize( :background => :red)

@@ -1,3 +1,4 @@
+require 'byebug'
 module SteppingPiece
   KING_MOVES = [[0,1], [0, -1], [1, 0], [-1, 0], [1,1], [-1, -1], [-1, 1], [1, -1]]
   KNIGHT_MOVES = [[-2, -1], [-2, 1], [-1, -2], [-1, 2], [1, -2], [1, 2], [2, -1], [2, 1]]
@@ -13,6 +14,16 @@ module SteppingPiece
         possible_moves << new_move
       end
     end
+
+    possible_moves
+  end
+
+
+  private
+  def add_pos(pos1, pos2)
+    x1, y1 = pos1
+    x2, y2 = pos2
+    [x1+x2, y1+y2]
   end
 end
 
@@ -37,12 +48,11 @@ module SlidingPiece
 
     possible_moves
   end
-  
+
   private
   def add_pos(pos1, pos2)
     x1, y1 = pos1
     x2, y2 = pos2
     [x1+x2, y1+y2]
   end
-
 end
