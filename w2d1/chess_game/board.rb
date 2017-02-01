@@ -1,4 +1,5 @@
 require_relative 'piece'
+require_relative 'error'
 
 class Board
 
@@ -20,13 +21,13 @@ class Board
   end
 
   def move_piece(start_pos, end_pos)
-    raise "Invalid move!" unless self[start_pos].valid_moves.include?(end_pos)
+    raise InvalidMove.new("Invalid Move!!!") unless self[start_pos].valid_moves.include?(end_pos)
 
     move_piece!(start_pos, end_pos)
   end
 
   def move_piece!(start_pos, end_pos)
-    raise "There is no piece at this position" if self[start_pos].class == NullPiece
+    raise InvalidMove.new("There is no piece at this position") if self[start_pos].class == NullPiece
 
     if self[end_pos].class == NullPiece
       self[start_pos] , self[end_pos] = self[end_pos] , self[start_pos]
@@ -66,8 +67,8 @@ class Board
     self[[row, 0]] = Rook.new(self, [row, 0], color)
     self[[row, 1]] = Knight.new(self, [row, 1], color)
     self[[row, 2]] = Bishop.new(self, [row, 2], color)
-    self[[row, 3]] = King.new(self, [row, 3], color)
-    self[[row, 4]] = Queen.new(self, [row, 4], color)
+    self[[row, 3]] = Queen.new(self, [row, 3], color)
+    self[[row, 4]] = King.new(self, [row, 4], color)
     self[[row, 5]] = Bishop.new(self, [row, 5], color)
     self[[row, 6]] = Knight.new(self, [row, 6], color)
     self[[row, 7]] = Rook.new(self, [row, 7], color)
@@ -117,6 +118,20 @@ class Board
     new_board
   end
 
+  def checkmate?(color)
+    return false unless self.in_check?(color)
+    all_possible_moves = []
 
+    (0..7).each do |row|
+      (0..7).each do |col|
+        curr_piece = self[[row, col]]
+        next if curr_piece.class == NullPiece
+        next if curr_piece.color == self.opposite_color(color)
+        # p "curr piece (#{curr_piece.class}): #{curr_piece.valid_moves}"
+        all_possible_moves += curr_piece.valid_moves
+      end
+    end
+    all_possible_moves.empty?
+  end
 
 end

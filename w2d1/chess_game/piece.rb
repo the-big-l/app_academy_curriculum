@@ -16,6 +16,7 @@ class Piece
 
     self.move.each do |pos_move|
       new_board = @board.dup
+      # p "@pos : #{@pos} pos_move: #{pos_move}"
       new_board.move_piece!(@pos, pos_move)
       valid_moves << pos_move unless new_board.in_check?(@color)
     end
@@ -67,7 +68,7 @@ class Bishop < Piece
 end
 
 class King < Piece
-  include SlidingPiece
+  include SteppingPiece
 
   def initialize(board, pos, color)
     super(board, pos, color)
@@ -108,13 +109,13 @@ class Pawn < Piece
     if @start_row == 1
       possible_moves += diagonal_move(DOWN_MOVES)
 
-      possible_moves << straight_move(@pos, [1, 0])
-      possible_moves << straight_move(@pos, [2, 0]) if at_start_row?
+      possible_moves += straight_move(@pos, [1, 0])
+      possible_moves += straight_move(@pos, [2, 0]) if at_start_row?
     else
       possible_moves += diagonal_move(UP_MOVES)
 
-      possible_moves << straight_move(@pos, [-1, 0])
-      possible_moves << straight_move(@pos, [-2, 0]) if at_start_row?
+      possible_moves += straight_move(@pos, [-1, 0])
+      possible_moves += straight_move(@pos, [-2, 0]) if at_start_row?
     end
 
     possible_moves
@@ -123,7 +124,8 @@ class Pawn < Piece
 
   def straight_move(pos, dir)
     new_move = add_pos(pos, dir)
-    return new_move if @board[new_move].class == NullPiece && @board.in_bounds?(new_move)
+    return [new_move] if @board[new_move].class == NullPiece && @board.in_bounds?(new_move)
+    []
   end
 
   def diagonal_move(moves)
