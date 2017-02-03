@@ -1,4 +1,4 @@
-class Queue
+class MyQueue
   def initialize
     @store = []
   end
@@ -28,16 +28,24 @@ class Queue
   attr_reader :store
 end
 
-class Stack
+class MyStack
   def initialize
-    @store = store
+    @store = []
+    @max_store = []
+    @min_store = []
   end
 
   def pop
+    max_store.pop if store.last == max_store.last
+    min_store.pop if store.last == min_store.last
+
     store.pop
   end
 
   def push(element)
+    max_store << element if max_store.empty? || max_store.last <= element
+    min_store << element if min_store.empty? || min_store.last >= element
+
     store << element
   end
 
@@ -49,14 +57,22 @@ class Stack
     store.empty?
   end
 
+  def max
+    max_store.last
+  end
+
+  def min
+    min_store.last
+  end
+
   private
-  attr_reader :store
+  attr_reader :store, :max_store, :min_store
 end
 
 class StackQueue
   def initialize
-    @pop_stack = Stack.new
-    @push_stack = Stack.new
+    @pop_stack = MyStack.new
+    @push_stack = MyStack.new
   end
 
   def enqueue(element)
@@ -81,4 +97,18 @@ class StackQueue
 
   private
   attr_reader :push_stack, :pop_stack
+end
+
+class MinMaxStackQueue < StackQueue
+  def max
+    return pop_stack.max if push_stack.empty?
+    return push_stack.max if pop_stack.empty?
+    [push_stack.max, pop_stack.max].max
+  end
+
+  def min
+    return pop_stack.min if push_stack.empty?
+    return push_stack.min if pop_stack.empty?
+    [push_stack.min, pop_stack.min].min
+  end
 end
