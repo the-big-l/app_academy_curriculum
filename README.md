@@ -11,6 +11,7 @@ w1d1 - No homework!
 
 ## Daily project notes
 w1d1 - Need to finish ghost and Bonus projects
+w1d5 - finish dfs and bfs return travel method
 
 ## TODO
 - Go through notes and fill study topics
