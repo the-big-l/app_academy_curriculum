@@ -1,0 +1,83 @@
+AttrAccessorObject
+  #my_attr_accessor
+    defines getter methods (FAILED - 1)
+    defines setter methods (FAILED - 2)
+    getter methods get from associated ivars (FAILED - 3)
+    setter methods set associated ivars (FAILED - 4)
+
+SQLObject
+  before ::finalize!
+    ::table_name
+      generates default name (FAILED - 5)
+    ::table_name=
+      sets table name (FAILED - 6)
+    ::columns
+      returns a list of all column names as symbols (FAILED - 7)
+      only queries the DB once (FAILED - 8)
+    #attributes
+      returns @attributes hash byref (FAILED - 9)
+      lazily initializes @attributes to an empty hash (FAILED - 10)
+  after ::finalize!
+    ::finalize!
+      creates getter methods for each column (FAILED - 11)
+      creates setter methods for each column (FAILED - 12)
+      created getter methods read from attributes hash (FAILED - 13)
+      created setter methods use attributes hash to store data (FAILED - 14)
+    #initialize
+      calls appropriate setter method for each item in params (FAILED - 15)
+      throws an error when given an unknown attribute (FAILED - 16)
+    ::all, ::parse_all
+      ::all returns all the rows (FAILED - 17)
+      ::parse_all turns an array of hashes into objects (FAILED - 18)
+      ::all returns a list of objects, not hashes (FAILED - 19)
+    ::find
+      fetches single objects by id (FAILED - 20)
+      returns nil if no object has the given id
+    #attribute_values
+      returns array of values (FAILED - 21)
+    #insert
+      inserts a new record (FAILED - 22)
+      sets the id once the new record is saved (FAILED - 23)
+      creates a new record with the correct values (FAILED - 24)
+    #update
+      saves updated attributes to the DB (FAILED - 25)
+    #save
+      calls #insert when record does not exist (FAILED - 26)
+An expectation of :update was set on nil. Called from /Users/leosalat/projects_git/app_academy_curriculum/w3d5/active_record_lite/spec/01_sql_object_spec.rb:235:in `block (4 levels) in <top (required)>'. Use allow_message_expectations_on_nil to disable warnings.
+      calls #update when record already exists (FAILED - 27)
+
+Searchable
+  #where searches with single criterion (FAILED - 28)
+  #where can return multiple objects (FAILED - 29)
+  #where searches with multiple criteria (FAILED - 30)
+  #where returns [] if nothing matches the criteria (FAILED - 31)
+
+AssocOptions
+  BelongsToOptions
+    provides defaults (FAILED - 32)
+    allows overrides (FAILED - 33)
+  HasManyOptions
+    provides defaults (FAILED - 34)
+    allows overrides (FAILED - 35)
+  AssocOptions
+    #model_class returns class of associated object (FAILED - 36)
+    #table_name returns table name of associated object (FAILED - 37)
+
+Associatable
+  #belongs_to
+    fetches `human` from `Cat` correctly (FAILED - 38)
+    fetches `house` from `Human` correctly (FAILED - 39)
+    returns nil if no associated object (FAILED - 40)
+  #has_many
+    fetches `cats` from `Human` (FAILED - 41)
+    fetches `humans` from `House` (FAILED - 42)
+    returns an empty array if no associated items (FAILED - 43)
+
+Associatable
+  ::assoc_options
+    defaults to empty hash (FAILED - 44)
+    stores `belongs_to` options (FAILED - 45)
+    stores options separately for each class (FAILED - 46)
+  #has_one_through
+    adds getter method (FAILED - 47)
+    fetches associated `home` for a `Cat` (FAILED - 48)
