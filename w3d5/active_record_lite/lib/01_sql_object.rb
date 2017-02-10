@@ -93,9 +93,9 @@ class SQLObject
 
   def update
     col_names = self.class.columns.drop(1)
-    set_string = col_names.map { |col| "#{col} = ?" }.join(', ')
+    set_line = col_names.map { |col| "#{col} = ?" }.join(', ')
 
-    sql_update(set_string)
+    sql_update(set_line)
 
     self
   end
@@ -115,12 +115,12 @@ class SQLObject
     SQL
   end
 
-  def sql_update(set_string)
+  def sql_update(set_line)
     DBConnection.execute(<<-SQL, *attribute_values.rotate)
       UPDATE
         #{self.class.table_name}
       SET
-        #{set_string}
+        #{set_line}
       WHERE
         id = ?
     SQL
