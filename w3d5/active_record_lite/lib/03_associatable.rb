@@ -37,17 +37,18 @@ class HasManyOptions < AssocOptions
     options.each { |attr_name, val| send("#{attr_name}=", val) }
   end
 end
-# Class Person
-  # belongs_to :house,
-  #   foreign_key: :house_id,
-  #   primary_key: :id,
-  #   class_name: 'House'
 
-  # Class House
-  # has_many :persons,
-  #   foreign_key: :house_id,
+# Class Cat
+  # belongs_to :person,
+  #   foreign_key: :person_id,
   #   primary_key: :id,
   #   class_name: 'Person'
+
+# Class Person
+  # has_many :cats,
+  #   foreign_key: :person_id,
+  #   primary_key: :id,
+  #   class_name: 'Cat'
 
 module Associatable
   # Phase IIIb
@@ -63,7 +64,14 @@ module Associatable
   end
 
   def has_many(name, options = {})
-    # ...
+    options = HasManyOptions.new(name, self, options)
+
+    define_method(name) do
+      f_k = options.send(:foreign_key)
+      p_k = options.send(:primary_key)
+
+      options.model_class.where(f_k => self.send(p_k))
+    end
   end
 
   def assoc_options
