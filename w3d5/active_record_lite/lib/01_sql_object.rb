@@ -8,17 +8,17 @@ class SQLObject
   def self.columns
     return @column_syms if @column_syms
 
-    column_strings = DBConnection.execute2(<<-SQL)
+    column_strings = DBConnection.execute2(<<-SQL).first
       SELECT *
       FROM #{table_name}
       SQL
 
-    @column_syms = column_strings.first.map(&:to_sym)
+    @column_syms = column_strings.map(&:to_sym)
   end
 
   def self.finalize!
     columns.each do |column|
-      define_method(column.to_s) do
+      define_method(column) do
         attributes[column]
       end
 
@@ -33,7 +33,7 @@ class SQLObject
   end
 
   def self.table_name
-    @table_name || self.to_s.tableize
+    @table_name || self.name.tableize
   end
 
   def self.all
@@ -58,7 +58,7 @@ class SQLObject
      WHERE id = ?
      SQL
 
-   results.empty? ? nil : self.new(results.first)
+   parse_all(results).first
   end
 
   def initialize(params = {})
@@ -67,8 +67,6 @@ class SQLObject
 
       send("#{attr_name}=", value)
     end
-
-    self
   end
 
   def attributes
@@ -76,28 +74,24 @@ class SQLObject
   end
 
   def attribute_values
-    self.class.columns.map do |col|
-      send(col)
-    end
+    self.class.columns.map { |col| send(col) }
   end
 
   def insert
-    col_names = self.class.columns
+    col_names = self.class.columns.drop(1)
     qmarks = ['?'] * col_names.size * ','
 
     sql_insert(col_names, qmarks)
-    send(:id=, DBConnection.last_insert_row_id)
 
-    self
+    send(:id=, DBConnection.last_insert_row_id)
   end
 
   def update
     col_names = self.class.columns.drop(1)
+
     set_line = col_names.map { |col| "#{col} = ?" }.join(', ')
 
     sql_update(set_line)
-
-    self
   end
 
   def save
@@ -107,7 +101,7 @@ class SQLObject
   private
 
   def sql_insert(col_names, qmarks)
-    DBConnection.execute(<<-SQL, attribute_values)
+    DBConnection.execute(<<-SQL, attribute_values.drop(1))
       INSERT INTO
         #{self.class.table_name} (#{col_names.join(',')})
       VALUES

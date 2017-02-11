@@ -14,7 +14,7 @@ class AssocOptions
   end
 
   def table_name
-    class_name == 'Human' ? 'humans' : self.class_name.tableize
+    model_class.table_name
   end
 end
 
@@ -56,10 +56,10 @@ module Associatable
     options = BelongsToOptions.new(name, options)
 
     define_method(name) do
-      f_k = options.send(:foreign_key)
-      p_k = options.send(:primary_key)
-      results = options.model_class.where(p_k => self.send(f_k))
-      results.first
+      f_k = options.foreign_key
+      p_k = options.primary_key
+
+      options.model_class.where(p_k => self.send(f_k)).first
     end
   end
 
@@ -67,8 +67,8 @@ module Associatable
     options = HasManyOptions.new(name, self, options)
 
     define_method(name) do
-      f_k = options.send(:foreign_key)
-      p_k = options.send(:primary_key)
+      f_k = options.foreign_key
+      p_k = options.primary_key
 
       options.model_class.where(f_k => self.send(p_k))
     end

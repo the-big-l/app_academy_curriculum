@@ -8,13 +8,13 @@ module Searchable
 
     results = search_db(where_line, params.values)
 
-    results.map { |options| self.new(options) }
+    parse_all(results)
   end
 
   private
 
   def search_db(where_line, values)
-    DBConnection.execute(<<-SQL, values)
+    DBConnection.execute(<<-SQL, *values)
       SELECT
         *
       FROM
