@@ -15,3 +15,25 @@ w1d5 - finish dfs and bfs return travel method
 
 ## TODO
 - Go through notes and fill study topics
+
+## Rails gems
+```
+group :development do
+  # Run 'bundle exec annotate' in Terminal to add helpful comments to models.
+  gem 'annotate'
+
+  # These two give you a great error handling page.
+  # But make sure to never use them in production!
+  gem 'better_errors'
+  gem 'binding_of_caller'
+
+  # Gotta have byebug...
+  gem 'byebug'
+
+  # pry > irb
+  gem 'pry-rails'
+  
+  # Clean up your log
+  gem 'quiet_assets'
+end
+```
