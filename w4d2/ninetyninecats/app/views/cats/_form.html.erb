@@ -1,0 +1,60 @@
+
+<!--
+  Things to change:
+    - action (done!)
+    - hidden input patch (done!)
+    - pre-filled values (done!)
+    - submit button (done!)
+-->
+
+<% if cat.persisted? %>
+  <% action_url = cat_url(cat) %>
+  <% request_type = 'patch'%>
+  <% button_text = 'Update the cat'%>
+<% else %>
+  <% action_url = cats_url %>
+  <% request_type = 'post' %>
+  <% button_text = 'Add the cat'%>
+<% end %>
+
+<form action="<%= action_url %>" method="post">
+    <input type="hidden" name="_method" value="<%=request_type%>">
+
+  <label for="name">Name
+    <input id="name" type="text" name="cat[name]" value="<%= cat.name %>">
+  </label>
+
+  <br><br>
+
+  <label for="sex">Sex
+    <input type="radio" name="cat[sex]" value="M" <%= cat.sex == 'M' ? "checked" : "" %> >Male
+    <input type="radio" name="cat[sex]" value="F" <%= cat.sex == 'F' ? "checked" : "" %> >Female
+  </label>
+
+  <br><br>
+
+  <label for="color">Color
+    <select name="cat[color]">
+      <option disabled >-- Select Color --</option>
+      <option value="black" <%= cat.color == 'black' ? "selected" : "" %>>black</option>
+      <option value="brown" <%= cat.color == 'brown' ? "selected" : "" %>>brown</option>
+      <option value="orange" <%= cat.color == 'orange' ? "selected" : "" %>>orange</option>
+    </select>
+  </label>
+
+  <br><br>
+
+  <label for="birth_date">Birth date
+    <input id="birth_date" type="date" name="cat[birth_date]" value="<%= cat.birth_date%>">
+  </label>
+
+  <br><br>
+
+  <label>Description<br>
+    <textarea name="cat[description]" cols="30" rows="5"><%= cat.description %></textarea>
+  </label>
+
+  <br><br>
+
+  <button><%= button_text %></button>
+</form>
