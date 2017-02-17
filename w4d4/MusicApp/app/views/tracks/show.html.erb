@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+<%= link_to 'Edit track', edit_track_path(@track) %> |
+<%= link_to 'Back to album', album_url(@track.album) %>
+
+<p>
+  <strong>Album:</strong>
+  <%= @track.album_title %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @track.title %>
+</p>
+
+<p>
+  <!-- <strong>Lyrics:</strong><br> -->
+  <%# fail %>
+
+</p>
+
+<table>
+  <thead>
+    <th align="left">Lyrics:</th>
+  </thead>
+  <tbody>
+    <td><% if @track.lyrics.nil? %>
+      <%= link_to 'add lyrics!', edit_track_path(@track) %>
+    <% else %>
+      <%#= @track.lyrics.gsub("\r\n", "<br>").html_safe %>
+      <pre><%= @track.lyrics %></pre>
+    <% end %></td>
+  </tbody>
+</table>

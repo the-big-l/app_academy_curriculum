@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+<%= link_to 'Add Track', new_album_track_url(@album) %> |
+<%= link_to 'Back to artist', band_url(@album.band) %>
+
+<p>
+  <strong>Artist:</strong>
+  <%= @album.band_name %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @album.title %>
+</p>
+
+<p>
+  <strong>Recoring Type:</strong>
+  <%= @album.recording_type %>
+</p>
+
+<strong>Tracklist:</strong>
+<table>
+  <thead>
+    <tr>
+
+      <th>No.</th>
+      <th>Track</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @album.tracks.order(:no).each do |track| %>
+      <tr>
+        <td><%= track.no %></td>
+        <td><%= track.title %></td>
+        <td><%= link_to 'Show', track %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

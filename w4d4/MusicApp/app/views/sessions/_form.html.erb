@@ -1,0 +1,15 @@
+<%= form_tag(session_url) do %>
+  <p id="notice"><%= notice %></p>
+
+  <div class="field">
+    <%= label :user, :email %><br>
+    <%= email_field :user, :email  %>
+  </div>
+  <div class="field">
+    <%= label :user, :password %><br>
+    <%= password_field :user, :password %>
+  </div>
+  <div class="actions">
+    <%= submit_tag('submit') %>
+  </div>
+<% end %>

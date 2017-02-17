@@ -1,0 +1,7 @@
+<%= form_tag(new_user_url) %>
+  <%= label :user, :email %>
+  <%= email :user, :email %>
+  <br>
+  <%= label :user, :password %>
+  <%= password_field :user, :password %>
+<% end %>
