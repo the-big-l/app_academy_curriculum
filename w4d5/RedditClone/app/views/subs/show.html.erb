@@ -1,0 +1,20 @@
+<h1>Welcome to the <%= @sub.title %> </h1>
+
+<h3>Here are all the posts for this sub-reddit:</h3>
+
+<%= link_to "Create New Post", new_sub_post_url(@sub) %>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Author</th>
+    <th>URL</th>
+  </tr>
+  <% @sub.posts.each do |post| %>
+  <tr>
+    <td><%= link_to post.title, post_url(post) %></td>
+    <td><%= post.author_username %></td>
+    <td><%= link_to "link", "http://#{post.url}" %></td>
+  </tr>
+<% end %>
+</table>

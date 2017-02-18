@@ -1,0 +1,9 @@
+<h1>Sublistings</h1>
+
+<%= link_to "Create New Sub", new_sub_url %>
+
+<% @subs.each do |one_sub| %>
+  <ul>
+    <li> <%= link_to one_sub.title, sub_url(one_sub) %> </li>
+  </ul>
+<% end %>

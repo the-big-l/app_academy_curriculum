@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RedditClone</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+
+<section>
+  <% if flash[:errors] %>
+      <p style="color: red;"><%= flash[:errors] %></p>
+  <% end %>
+</section>
+
+<header>
+  <% name = logged_in? ? current_user.username : '' %>
+  Welcome, <%= name %><br>
+  <% unless logged_in? %>
+    <%= link_to "Sign in", new_session_url %> <%= link_to "Sign up", new_user_url %>
+  <% else %>
+    <%= button_to "Logout", session_url, method: :delete %>
+  <% end %><br>
+</header>
+<body>
+
+<%= yield %>
+
+</body>
+</html>
