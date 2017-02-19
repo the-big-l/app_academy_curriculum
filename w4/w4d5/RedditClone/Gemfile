@@ -67,3 +67,8 @@ group :test do
   gem 'guard-rspec'
   gem 'launchy'
 end
+
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+end
