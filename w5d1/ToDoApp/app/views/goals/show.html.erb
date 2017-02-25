@@ -1,0 +1,9 @@
+<h1>Goals#show</h1>
+
+<%= render @goal.comments %>
+
+<form class="" action="<%= comments_url %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="text" name="comment[body]" id="Comment" value="">
+  <input type="submit" name="" value="Add Comment">
+</form>
