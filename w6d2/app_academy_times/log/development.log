@@ -1,0 +1,122 @@
+Started GET "/" for ::1 at 2016-10-16 23:45:30 -0700
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from raise_in_transactional_callbacks= at /Users/kmccall/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/activerecord-5.0.0.1/lib/active_record/transactions.rb:283)
+
+ActionController::RoutingError - uninitialized constant StaticPagesController:
+  actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:46:in `rescue in controller'
+  actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:44:in `controller'
+  actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:30:in `serve'
+  actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+  actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+  actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+  rack (2.0.1) lib/rack/etag.rb:25:in `call'
+  rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
+  rack (2.0.1) lib/rack/head.rb:12:in `call'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+  actionpack (5.0.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  activerecord (5.0.0.1) lib/active_record/migration.rb:552:in `call'
+  actionpack (5.0.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+  activesupport (5.0.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+  activesupport (5.0.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+  activesupport (5.0.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+  actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+  web-console (3.3.1) lib/web_console/middleware.rb:131:in `call_app'
+  web-console (3.3.1) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (3.3.1) lib/web_console/middleware.rb:18:in `call'
+  actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+  activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `tagged'
+  railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `call'
+  actionpack (5.0.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+  rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.0.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  rack-livereload (0.3.16) lib/rack/livereload.rb:23:in `_call'
+  rack-livereload (0.3.16) lib/rack/livereload.rb:14:in `call'
+  actionpack (5.0.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+  rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+  railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+  puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+  puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+  puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+  puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+  puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+
+Started POST "/__better_errors/0a42d186c6ec07d8/variables" for ::1 at 2016-10-16 23:45:31 -0700
+Started GET "/" for ::1 at 2016-10-16 23:47:19 -0700
+Processing by StaticPagesController#index as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered shared/_sections_sidebar.html.erb (0.4ms)
+  Rendered shared/_gear_dropdown.html.erb (0.6ms)
+  Rendered shared/_main_nav.html.erb (12.9ms)
+  Rendered shared/_masthead.html.erb (1.1ms)
+  Rendered shared/_search_modal.html.erb (0.9ms)
+  Rendered shared/_sections_nav.html.erb (8.5ms)
+  Rendered shared/_search_modal.html.erb (0.1ms)
+  Rendered shared/_main_content.html.erb (0.6ms)
+  Rendered static_pages/index.html.erb within layouts/application (51.5ms)
+Completed 200 OK in 939ms (Views: 919.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-10-16 23:47:20 -0700
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-10-16 23:47:20 -0700
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-10-16 23:47:20 -0700
+Started GET "/assets/components/dropdown.self-6ec5cca9d11e438650145aa29adf3b6584fc46a0b955bdc923c1095688a9925f.js?body=1" for ::1 at 2016-10-16 23:47:20 -0700
+Started GET "/assets/application.self-b89234cf2659d7fedea75bca0b8d231ad7dfc2f3f57fcbaf5f44ed9dc384137b.js?body=1" for ::1 at 2016-10-16 23:47:20 -0700
+Started GET "/assets/application.self-14b8998c29f7eb5535c0fabd5d0fadc1c6fa0003ae0f90502ab6c44cbc0748d5.css?body=1" for ::1 at 2016-10-16 23:47:20 -0700
+Started GET "/assets/components/sidebar.self-2a1277f850a6fa21e1a974ef5152f177ac05516477d5081d593bb137b3d6808b.js?body=1" for ::1 at 2016-10-16 23:47:20 -0700
+Started GET "/assets/components/modal.self-52188644dbb47def5ee35ae02e69eb567ca9b664472357a8a5789dd39032a265.js?body=1" for ::1 at 2016-10-16 23:47:20 -0700
+Started GET "/assets/AA_Times_Logo.png" for ::1 at 2016-10-16 23:47:20 -0700
+Started GET "/assets/new_office.jpg" for ::1 at 2016-10-16 23:47:20 -0700
+Started GET "/" for ::1 at 2016-10-17 00:16:41 -0700
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from raise_in_transactional_callbacks= at /Users/kmccall/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/activerecord-5.0.0.1/lib/active_record/transactions.rb:283)
+Processing by StaticPagesController#index as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered shared/_main_nav.html.erb (0.3ms)
+  Rendered shared/_masthead.html.erb (0.2ms)
+  Rendered shared/_search_modal.html.erb (0.2ms)
+  Rendered shared/_sections_nav.html.erb (2.0ms)
+  Rendered shared/_search_modal.html.erb (0.1ms)
+  Rendered shared/_main_content.html.erb (0.3ms)
+  Rendered static_pages/index.html.erb within layouts/application (16.7ms)
+Completed 200 OK in 494ms (Views: 477.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-29711da439f98a3728b49ad3b75c506b3f012b1c421ec90ffbcf2cf5a5b3b8cf.css?body=1" for ::1 at 2016-10-17 00:16:42 -0700
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-10-17 00:16:42 -0700
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-10-17 00:16:42 -0700
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-10-17 00:16:42 -0700
+Started GET "/assets/components/dropdown.self-6ec5cca9d11e438650145aa29adf3b6584fc46a0b955bdc923c1095688a9925f.js?body=1" for ::1 at 2016-10-17 00:16:42 -0700
+Started GET "/assets/components/modal.self-52188644dbb47def5ee35ae02e69eb567ca9b664472357a8a5789dd39032a265.js?body=1" for ::1 at 2016-10-17 00:16:42 -0700
+Started GET "/assets/application.self-b89234cf2659d7fedea75bca0b8d231ad7dfc2f3f57fcbaf5f44ed9dc384137b.js?body=1" for ::1 at 2016-10-17 00:16:42 -0700
+Started GET "/assets/components/sidebar.self-2a1277f850a6fa21e1a974ef5152f177ac05516477d5081d593bb137b3d6808b.js?body=1" for ::1 at 2016-10-17 00:16:42 -0700
+Started GET "/" for ::1 at 2016-10-17 00:17:35 -0700
+Processing by StaticPagesController#index as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered shared/_main_nav.html.erb (0.4ms)
+  Rendered shared/_masthead.html.erb (0.3ms)
+  Rendered shared/_sections_nav.html.erb (0.5ms)
+  Rendered shared/_search_modal.html.erb (0.3ms)
+  Rendered shared/_main_content.html.erb (0.3ms)
+  Rendered static_pages/index.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 44ms (Views: 40.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-10-17 00:17:35 -0700
+Started GET "/assets/application.self-29711da439f98a3728b49ad3b75c506b3f012b1c421ec90ffbcf2cf5a5b3b8cf.css?body=1" for ::1 at 2016-10-17 00:17:35 -0700
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-10-17 00:17:35 -0700
+Started GET "/assets/components/modal.self-52188644dbb47def5ee35ae02e69eb567ca9b664472357a8a5789dd39032a265.js?body=1" for ::1 at 2016-10-17 00:17:35 -0700
+Started GET "/assets/components/sidebar.self-2a1277f850a6fa21e1a974ef5152f177ac05516477d5081d593bb137b3d6808b.js?body=1" for ::1 at 2016-10-17 00:17:35 -0700
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-10-17 00:17:35 -0700
+Started GET "/assets/components/dropdown.self-6ec5cca9d11e438650145aa29adf3b6584fc46a0b955bdc923c1095688a9925f.js?body=1" for ::1 at 2016-10-17 00:17:35 -0700
+Started GET "/assets/application.self-b89234cf2659d7fedea75bca0b8d231ad7dfc2f3f57fcbaf5f44ed9dc384137b.js?body=1" for ::1 at 2016-10-17 00:17:35 -0700
