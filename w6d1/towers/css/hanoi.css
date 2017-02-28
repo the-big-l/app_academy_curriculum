@@ -1,0 +1,58 @@
+body {
+  font-family: sans-serif;
+}
+
+ul {
+  width: 105px;
+  float: left;
+  /*height: 100px;*/
+  padding: 0px;
+  margin: 10px;
+  border-bottom: 8px solid black;
+}
+
+figure ul li {
+  /*float: left;*/
+  /*display: inline;*/
+  /*border: 1px black solid;*/
+  width: 100px;
+  height: 30px;
+  list-style: none;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+ul:hover {
+  border-bottom-color: blue;
+}
+
+.disc1 {
+  background-color: gray;
+  border-radius: 30px;
+  width: 30px;
+  margin: 0px auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.disc2 {
+  background-color: gray;
+  border-radius: 30px;
+  width: 60px;
+  margin: 0px auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.disc3 {
+  background-color: gray;
+  border-radius: 30px;
+  width: 90px;
+  margin: 0px auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.selected {
+  border-bottom-color: red;
+}
