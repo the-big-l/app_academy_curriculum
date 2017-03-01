@@ -2,13 +2,23 @@
 	<nav class="left-nav">
 		<ul>
 			<li id="sections-sidebar-btn">
-				<i class="fa fa-bars"></i>
+				<i class="fa fa-bars" aria-hidden="true"></i>
 				<span>sections</span>
 			</li>
 			<li id="search-modal-btn">
-				<i class="fa fa-search"></i>
+				<i class="fa fa-search" aria-hidden="true"></i>
 				<span>search</span>
 			</li>
 		</ul>
 	</nav>
+  <nav class="right-nav">
+    <ul>
+      <li><button>subscribe now</button></li>
+      <li><button>log in</button></li>
+      <li id="gear-dropdown-btn">
+        <i class="fa fa-cog" aria-hidden="true"></i>
+      </li>
+    </ul>
+  </nav>
+  <%= render partial: 'shared/gear_dropdown' %>
 </header>

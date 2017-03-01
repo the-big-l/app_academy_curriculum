@@ -1,1 +1,42 @@
 // Use the gear_dropdown.png screenshot as a style guide
+.gear-dropdown {
+  position: absolute;
+  background-color: white;
+  border: 1px solid $light-gray;
+  width: 180px;
+  z-index: 1;
+  top: 38px;
+  right: 18px;
+  border-radius: 2px;
+  box-shadow: -1px 4px 6px 1px rgba(0, 0, 0, 0.09);
+  font-size: 12px;
+  font-family: $sans-serif;
+  color: $dark-gray;
+  text-transform: uppercase;
+  padding: 10px;
+}
+
+ul.gear-dropdown > li{
+  padding: 5px 0;
+}
+
+ul.gear-dropdown > li:nth-child(n + 2) {
+  border-top: 1px solid $light-gray;
+}
+
+.gear-dropdown ul li {
+  padding: 4px 4px;
+}
+
+.gear-dropdown ul li:hover {
+  background-color: $lightest-gray;
+}
+
+span.dropdown-subtitle {
+  font-weight: bold;
+  font-size: 10px;
+}
+
+ul.help {
+  text-transform: capitalize;
+}
