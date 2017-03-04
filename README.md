@@ -16,6 +16,11 @@ w1d5 - finish dfs and bfs return travel method
 ## TODO
 - Go through notes and fill study topics
 
+## Node packages
+```
+npm install --save webpack react react-dom babel-core babel-loader babel-preset-es2015 babel-preset-react redux react-redux react-router lodash
+```
+
 ## Rails gems
 ```
 group :development do
