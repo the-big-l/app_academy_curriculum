@@ -7,10 +7,12 @@ import {
 import StepList from './step_list';
 import {stepsByTodoId} from '../../reducers/selectors';
 
-const mapStateToProps = (state, {todoID}) => ({
-  steps: stepsByTodoId(state, todoID),
-  todoID
-});
+const mapStateToProps = (state, {todoID}) => {
+  return {
+    steps: stepsByTodoId(state, todoID),
+    todoID
+  };
+};
 
 const mapDispatchToProps = dispatch => ({
   receiveStep: (step) => dispatch(receiveStep(step)),

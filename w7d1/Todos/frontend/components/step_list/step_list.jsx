@@ -2,8 +2,8 @@ import React from 'react';
 import StepListItemContainer from './step_list_item_container';
 import StepForm from './step_form';
 const StepList = ({steps, todoID, receiveStep, receiveSteps, removeStep}) => (
-  <div>
-    <StepForm removeStep={removeStep} receiveStep={receiveStep}/>
+  <div className="step-list">
+    <StepForm removeStep={removeStep} receiveStep={receiveStep} todoID={todoID}/>
     <ul>
       {steps.map(step =>
         <StepListItemContainer

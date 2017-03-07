@@ -32,7 +32,7 @@ class TodoListItem extends React.Component {
       steps = <TodoDetailViewContainer todo= {this.props.todo}/>;
     }
     return (
-      <div>
+      <div className="todo">
         <li onClick={this.toggleDetails}>{this.props.todo.title}</li>
         <button onClick={this.handleStatus}>{this.statusButtonText()}</button>
         {steps}

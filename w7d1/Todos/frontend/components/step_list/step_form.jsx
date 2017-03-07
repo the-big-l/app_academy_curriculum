@@ -19,7 +19,7 @@ class StepForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    const newState = merge({id: new Date().getTime()}, this.state);
+    const newState = merge({id: new Date().getTime(), todo_id: this.props.todoID}, this.state);
     this.props.receiveStep(newState);
 
     this.setState({
