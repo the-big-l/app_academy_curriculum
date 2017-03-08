@@ -1,0 +1,102 @@
+body {
+  background-color: #5ef1de;
+  font-family: sans-serif;
+}
+ul {
+
+  list-style-type: none;
+  padding: 0;
+}
+
+.form {
+  border: 1px solid #67af43;
+  background-color: #92fb91;
+  padding: 5px;
+  display: flex;
+  border-radius: 6px;
+  justify-content: center;
+}
+.step-list {
+  border: 1px solid #67af43;
+  background-color: #03f9c2;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 10px;
+  border-radius: 6px;
+}
+
+
+.todo {
+  border: 1px solid #67af43;
+  background-color: #92fb91;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  border-radius: 6px;
+  justify-content: center;
+}
+
+h1 {
+  border: 4px solid gray;
+  text-align: center;
+  color: white;
+  background-color: black;
+  border-radius: 7px;
+  text-decoration: underline;
+  font-weight: 400;
+}
+
+
+button {
+  display: flex;
+  flex-direction: row;
+}
+
+input, textarea {
+  display: flex;
+  align-items: center;
+  width: inherit;
+}
+
+.todo > li {
+  text-align: center;
+  height: 18px;
+  border-radius: inherit;
+  padding: 10px;
+  background-color: #03f9c2;
+  border: 1px solid #2c8849;
+  display: flex;
+  justify-content: center;
+
+}
+
+.todo > button {
+  width: 49px;
+  height: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.todo> li:hover {
+  cursor: pointer;
+}
+
+.todo-errors {
+  color: red;
+  text-decoration: underline;
+}
+
+p {
+  text-align: center;
+  height: 18px;
+  border-radius: 6px;
+  padding: 10px;
+  background-color: #03f9c2;
+  border: 1px solid #2c8849;
+  display: flex;
+  justify-content: center;
+}
