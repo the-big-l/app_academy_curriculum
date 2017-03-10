@@ -1,5 +1,13 @@
-const selectAllPokemon = (state) => (
+export const selectAllPokemon = (state) => (
   Object.values(state.pokemon)
 );
 
-export default selectAllPokemon;
+export const selectPokemonItem = (state, itemId) => {
+  let foundItem;
+  state.pokemonDetail.items.forEach(item => {
+    if (item.id === itemId) {
+      foundItem = item;
+    }
+  })
+  return foundItem;
+};
