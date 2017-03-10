@@ -15,6 +15,7 @@ w1d5 - finish dfs and bfs return travel method
 
 ## TODO
 - Go through notes and fill study topics
+- Remove bundle.js files
 
 ## Node packages
 ```
