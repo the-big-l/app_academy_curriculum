@@ -1,9 +1,9 @@
 import React from 'react';
 
-const App = (props) => (
+const App = { children } => (
   <div className='app'>
     <h1>Bench BnB</h1>
-    {props.children}
+    {children}
   </div>
 );
 
