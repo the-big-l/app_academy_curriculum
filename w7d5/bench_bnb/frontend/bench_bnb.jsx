@@ -4,19 +4,17 @@ import configureStore from './store/store';
 import Root from './components/root';
 
 // Testing
-import * as Util from './util/session_api_util';
-import {receiveCurrentUser} from './actions/session_actions';
+import { login, signup, logout } from './actions/session_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
     const root = document.getElementById('root');
     const store = configureStore();
 
     // Testing
-    window.login = Util.login;
-    window.signup = Util.signup;
-    window.logout = Util.logout;
+    window.login = login;
+    window.signup = signup;
+    window.logout = logout;
     window.store = store;
-    window.receiveCurrentUser = receiveCurrentUser;
 
     ReactDOM.render(<Root store={store} />, root);
 });
