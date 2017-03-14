@@ -8,7 +8,9 @@ import { login, signup, logout } from './actions/session_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
     const root = document.getElementById('root');
-    const store = configureStore();
+    const store = window.currentUser ?
+      configureStore({ session: { currentUser: window.currentUser } }) :
+      configureStore();
 
     // Testing
     window.login = login;

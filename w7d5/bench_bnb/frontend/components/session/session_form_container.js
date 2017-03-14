@@ -8,9 +8,13 @@ const mapStateToProps = ({ session }) => ({
 });
 
 const mapDispatchToProps = (dispatch, { location }) => {
-  const action = location.pathname === '/login' ? login : signup;
+  const formType = location.pathname.slice(1);
+  const action = formType === 'login' ? login : signup;
 
-  return { processForm: user => dispatch(action(user)) };
+  return {
+    processForm: user => dispatch(action(user)),
+    formType
+   };
 };
 
 export default connect(
