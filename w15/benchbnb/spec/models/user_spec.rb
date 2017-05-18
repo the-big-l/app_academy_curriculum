@@ -27,11 +27,26 @@ RSpec.describe User, type: :model do
   describe 'model_methods' do
     describe '.find_by_credentials' do
       context 'when given correct credentials' do
-        it 'should find the right user'
+        let(:breakfast) do
+          User.find_by_credentials('breakfast', 'password')
+        end
+
+        it 'should be an instance of User' do
+          expect(breakfast).to be_an_instance_of(User)
+        end
+
+        it 'should find the right user' do
+          expect(breakfast.username).to eq('breakfast')
+        end
       end
 
       context 'when given incorrect credentials' do
-        it 'should return nil'
+        let(:breakfast) do
+          User.find_by_credentials('breakfast', 'pass')
+        end
+        it 'should return nil' do
+          expect(breakfast).to be_nil
+        end
       end
     end
   end
