@@ -5,6 +5,10 @@ RSpec.describe User, type: :model do
     User.create!(username: 'breakfast', password: 'password')
   end
 
+  let(:breakfast) do
+    User.find_by_credentials('breakfast', 'password')
+  end
+
   describe 'validations' do
     it { should validate_presence_of(:username) }
     it { should validate_presence_of(:password_digest) }
@@ -27,9 +31,6 @@ RSpec.describe User, type: :model do
   describe 'model_methods' do
     describe '.find_by_credentials' do
       context 'when given correct credentials' do
-        let(:breakfast) do
-          User.find_by_credentials('breakfast', 'password')
-        end
 
         it 'should be an instance of User' do
           expect(breakfast).to be_an_instance_of(User)
@@ -47,6 +48,16 @@ RSpec.describe User, type: :model do
         it 'should return nil' do
           expect(breakfast).to be_nil
         end
+      end
+    end
+  end
+
+  describe 'instance_methods' do
+    describe '#reset_session_token!' do
+      it 'resets the session token' do
+        old_token = breakfast.session_token
+        new_token = breakfast.reset_session_token!
+        expect(new_token).to_not eq(old_token)
       end
     end
   end
