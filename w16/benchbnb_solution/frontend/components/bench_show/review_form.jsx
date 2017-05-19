@@ -25,7 +25,7 @@ class ReviewForm extends React.Component {
   }
 
   update(property) {
-    return e => this.setState({ [property]: e.currentTarget.value });
+    return e => this.setState({ [property]: e.target.value });
   }
 
   render() {

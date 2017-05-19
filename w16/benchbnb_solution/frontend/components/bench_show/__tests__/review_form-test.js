@@ -23,16 +23,23 @@ describe('review form container', () => {
       reviewRating = reviewFormWrapper.find('input').filterWhere(input => (
         input.props().type === 'number'
       ));
+
       reviewBody = reviewFormWrapper.find('textarea');
+
     });
-    
+
     test('pre-fills rating field to 5', () => {
-      /* your code here */
+      expect(reviewRating.props().value).toEqual(5)
     });
 
     test('pre-fills comment field with empty string', () => {
-      /* your code here */
+      expect(reviewBody.props().value).toEqual('')
     });
+
+    test('changes rating on change', () => {
+      reviewRating.simulate('change', { target: { value: '2' } })
+      expect(reviewFormWrapper.node.state.rating).toEqual('2')
+    })
   });
 
 });

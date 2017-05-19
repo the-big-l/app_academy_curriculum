@@ -46,14 +46,14 @@ describe('BenchesReducer', () => {
     });
 
     test('should replace the state with the action\'s benches', () => {
-      const state = BenchesReducer(undefined, action);
-      expect(state).toEqual(testBenches);
+      const state = BenchesReducer(undefined, action)
+      expect(state).toEqual(testBenches)
     });
 
     test('should not modify the old state', () => {
-      let oldState = { 1: 'oldState' };
-      BenchesReducer(oldState, action);
-      expect(oldState).toEqual({ 1: 'oldState' });
+      let oldState = { 1: 'oldState' }
+      BenchesReducer(oldState, action)
+      expect(oldState).toEqual({ 1: 'oldState' })
     });
   });
 });
